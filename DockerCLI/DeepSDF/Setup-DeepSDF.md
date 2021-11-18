@@ -80,7 +80,7 @@ cd ~
 cd ~/DeepSDF
 // include nanoflann
 vim CMakeLists.txt
-// Add "include_directories("/usr/local/include")
+// Add include_directories("/usr/local/include")
 vim ./src/Utils.h
 // Change #include <nanoflann/nanoflann.hpp> into #include "nanoflann.hpp"
 git submodule update --init
@@ -107,8 +107,13 @@ unzip ShapeNetCore.v2.zip
 // create data
 mkdir data
 
+// Fix Error of Pip3 imageio
+// syntax error invalid syntax python3 imageio extensions.py
+pip3 install --upgrade pip
+pip3 install imageio --upgrade
+
 # pre-process the sofas training set (SDF samples)
-python preprocess_data.py --data_dir data --source [...]/ShapeNetCore.v2/ --name ShapeNetV2 --split examples/splits/sv2_sofas_train.json --skip
+python3 preprocess_data.py --data_dir /home/nikolos/Documents/Workspace/data --source /home/nikolos/Documents/Workspace/ShapeNetV2/ShapeNetCore.v2/ --name ShapeNetV2 --split examples/splits/sv2_sofas_train.json --skip
 
 # train the model
 python train_deep_sdf.py -e examples/sofas
