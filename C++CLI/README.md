@@ -14,4 +14,6 @@
 
 ### vcpkg
     - Library依存関係の管理ツールは絶対に使う
+    - https://github.com/microsoft/vcpkg
+    - https://github.com/microsoft/vcpkg/blob/master/README_zh_CN.md#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B-windows
 
